@@ -8,8 +8,7 @@ class WhatsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xff075E54),
-      ),
+          primaryColor: Color(0xff075E54), accentColor: Color(0xff25D366)),
       home: WhatsAppHome(),
     );
   }
