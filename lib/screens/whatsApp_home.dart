@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/calls.dart';
+import 'package:whatsapp/screens/camera.dart';
 import 'package:whatsapp/screens/chats.dart';
 import 'package:whatsapp/screens/status.dart';
 
@@ -53,7 +54,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
-          Text('fefds'),
+          CameraScreen(),
           ChatScreen(),
           StatusScreen(),
           CallsScreen(),
