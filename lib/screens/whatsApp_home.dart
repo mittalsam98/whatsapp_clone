@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/screens/calls.dart';
+import 'package:whatsapp/screens/chats.dart';
+import 'package:whatsapp/screens/status.dart';
 
 class WhatsAppHome extends StatefulWidget {
   @override
@@ -31,10 +34,12 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('WhatsApp'),
+        title: Text(
+          'WhatsApp',
+        ),
         actions: <Widget>[
           Icon(Icons.search),
-          SizedBox(width: 10),
+          SizedBox(width: 18),
           Icon(Icons.more_vert),
           SizedBox(width: 10),
         ],
@@ -49,12 +54,15 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
         controller: _tabController,
         children: <Widget>[
           Text('fefds'),
-          Text('fefdsa'),
-          Text('fefds'),
-          Text('fef'),
+          ChatScreen(),
+          StatusScreen(),
+          CallsScreen(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print("Hello");
+        },
         foregroundColor: Colors.white,
         backgroundColor: Theme.of(context).accentColor,
         child: Icon(Icons.message),
