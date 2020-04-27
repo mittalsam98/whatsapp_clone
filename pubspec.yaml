@@ -27,6 +27,7 @@ dependencies:
   path_provider: ^1.6.7
   path: ^1.6.4
   esys_flutter_share: ^1.0.2
+  outline_material_icons: ^0.1.1
 
 dev_dependencies:
   flutter_test:

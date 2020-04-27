@@ -18,9 +18,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
     Tab(
       text: "CHATS",
     ),
-    Tab(
-      text: "STATUS",
-    ),
+    Tab(text: "STATUS"),
     Tab(
       text: "CALLS",
     )
@@ -29,7 +27,20 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   TabController _tabController;
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: myTabs.length);
+    _tabController =
+        TabController(vsync: this, length: myTabs.length, initialIndex: 1);
+    _tabController.addListener(_handleTabIndex);
+  }
+
+  @override
+  void dispose() {
+    _tabController.removeListener(_handleTabIndex);
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  void _handleTabIndex() {
+    setState(() {});
   }
 
   Widget build(BuildContext context) {
@@ -60,14 +71,16 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           CallsScreen(),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("Hello");
-        },
-        foregroundColor: Colors.white,
-        backgroundColor: Theme.of(context).accentColor,
-        child: Icon(Icons.message),
-      ),
+      floatingActionButton: _tabController.index == 0
+          ? null
+          : FloatingActionButton(
+              onPressed: () {
+                print("Hello");
+              },
+              foregroundColor: Colors.white,
+              backgroundColor: Theme.of(context).accentColor,
+              child: Icon(Icons.message),
+            ),
     );
   }
 }
